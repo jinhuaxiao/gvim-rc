@@ -1,0 +1,89 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+filetype plugin indent on
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=utf-8,gbk
+
+set langmenu=zh_CN.utf-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+language messages zh_cn.utf-8
+
+set guifont=Monaco:h10:cANSI " setting for the font
+
+au! bufwritepost _vimrc source $MYVIMRC " autoload vimrc
+
+au! BufRead,BufNewFile *.json set filetype=json  
+
+set autochdir " auto change dir
+let moria_style = 'black'
+colorscheme moria
+"set linebreak
+set cursorline
+set textwidth=80
+set nocompatible
+set history=400
+set ruler
+set number
+set hlsearch
+set incsearch
+set expandtab
+set noerrorbells
+set novisualbell
+set t_vb= "close visual bell
+set foldmethod=marker
+set tabstop=4
+set shiftwidth=4
+set nobackup
+set nowritebackup
+"set noswapfile
+set smarttab
+set smartindent
+set autoindent
+set autoread
+set cmdheight=1
+set showtabline=2 
+"set clipboard+=unnamed
+set tabpagemax=20
+set laststatus=2
+"Toggle Menu and Toolbar
+set guioptions-=m
+set guioptions-=T
+map <silent><F2> :if &guioptions =~# 'T' <Bar>
+\set guioptions-=T <Bar>
+\set guioptions-=m <bar>
+\else <Bar>
+\set guioptions =T <Bar>
+\set guioptions =m <Bar>
+\endif<CR>
+" _vimrc
+map <leader>e <Esc>:e $MYVIMRC<CR>
+" NERDTree
+map <F10> :NERDTreeToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" unset arrow key
+"nmap <up> <nop>
+"nmap <down> <nop>
+"nmap <left> <nop>
+"nmap <right> <nop>
+"imap <up> <nop>
+"imap <down> <nop>
+"imap <left> <nop>
+"imap <right> <nop>
+
+let php_folding = 1
+
+"imap <F3> <Esc>
+set clipboard+=unnamed
+
+augroup filetypedetect
+    au! BufNewFile,BufRead *.as  setf actionscript
+augroup END
+

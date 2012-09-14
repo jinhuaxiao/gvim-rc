@@ -1,0 +1,69 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+col moria
+let moria_style ='black'
+
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileformats=unix,dos
+let g:fencview_autodetect=1                      
+filetype plugin indent on
+set encoding=utf-8
+set fileencodings=utf-8,gbk
+
+set langmenu=zh_CN.utf-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+language messages zh_cn.utf-8
+
+" setting for the font
+set guifont=Monaco:h10
+"set guifont=Monaco:h10:cANSI 
+
+"au! BufRead,BufNewFile *.json set filetype=json  
+
+" auto change dir
+set autochdir 
+
+set nobackup
+set nowritebackup
+
+set cursorline
+set number
+set hlsearch
+
+"set incsearch
+"set foldmethod=marker
+"set smarttab
+"set smartindent
+"set autoindent
+"set autoread
+
+"Toggle Menu and Toolbar
+set guioptions-=m
+set guioptions-=T
+map <silent><F2> :if &guioptions =~# 'T' <Bar>
+            \set guioptions-=T <Bar>
+            \set guioptions-=m <bar>
+            \else <Bar>
+            \set guioptions+=T <Bar>
+            \set guioptions+=m <Bar>
+            \endif<CR>
+
+" _vimrc
+map <leader>e <Esc>:e $MYVIMRC<CR>
+" NERDTree
+map <F10> :NERDTreeToggle<CR>
+
+
+
+"let php_folding = 1
+
+"设置剪切板可以和系统共用
+set clipboard+=unnamed
+augroup filetypedetect
+    au! BufNewFile,BufRead *.as  setf actionscript
+augroup END
+2011-10-17 16:10:16
